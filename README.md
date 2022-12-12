@@ -64,6 +64,7 @@ $ git checkout c4
 移动 HEAD，main 和 bugFix 到目标所示的位置。
 
 <img width="929" alt="image" src="https://user-images.githubusercontent.com/33156021/207021132-2c3711d5-24b3-44d3-b90f-bf0c754bfb01.png">
+
 ```
 $ git checkout bugFix; git branch -f bugFix HEAD~3;
   
@@ -71,12 +72,12 @@ $ git checkout c6; git branch -f main HEAD;
   
 $ git checkout c1;
 ```
+
 // “撤销变更”，git reset 向上移动分支，原来指向的提交记录就跟从来没有提交过一样，$ git reset HEAD~1, $ git revert HEAD. 
 
 <img width="956" alt="image" src="https://user-images.githubusercontent.com/33156021/207025264-745a61d4-0b97-4f4c-8225-c5da2c10a9ec.png">
 
 ```$ git branch -f local HEAD~1; git checkout pushed; git resert HEAD;```
-
 
 ### 整理提交记录
 
