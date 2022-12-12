@@ -5,10 +5,11 @@
 
 符号 * 表示当前分支
 
-void main()
+```，java：‘ ```void main()
 {
 printf("Hello, Markdown.");
-}
+}``` ’
+
 
 ## [交互练习git](https://learngitbranching.js.org/?locale=zh_CN)
 
