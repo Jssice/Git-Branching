@@ -5,11 +5,6 @@
 
 符号 * 表示当前分支
 
-```，java：‘ ```void main()
-{
-printf("Hello, Markdown.");
-}``` ’
-
 
 ## [交互练习git](https://learngitbranching.js.org/?locale=zh_CN)
 
@@ -60,9 +55,9 @@ $ git checkout bugFix; git rebase main
 
 <img width="929" alt="image" src="https://user-images.githubusercontent.com/33156021/207018527-43826273-0016-4793-bec9-2fb0a8c5cc8b.png">
 
-''' java
+```
 $ git checkout c4
-'''
+```
 
 // “相对引用（^）”，使用 ^ 向上移动 1 个提交记录
 
