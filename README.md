@@ -5,7 +5,10 @@
 
 符号 * 表示当前分支
 
-
+void main()
+{
+printf("Hello, Markdown.");
+}
 
 ## [交互练习git](https://learngitbranching.js.org/?locale=zh_CN)
 
@@ -32,7 +35,6 @@ $ git checkout -b bugFix; git commit;
 $ git checkout main; git commit; 
 
 $ git checkout bugFix; git rebase main
-
 
 
 
