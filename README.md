@@ -56,9 +56,10 @@ $ git checkout bugFix; git rebase main
 通过哈希值指定提交记录。每个提交记录的哈希值显示在代表提交记录的圆圈中。
 
 <img width="929" alt="image" src="https://user-images.githubusercontent.com/33156021/207018527-43826273-0016-4793-bec9-2fb0a8c5cc8b.png">
-le
 
+''' Linux
 $ git checkout c4
+'''
 
 // “相对引用（^）”，使用 ^ 向上移动 1 个提交记录
 
