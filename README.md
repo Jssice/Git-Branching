@@ -137,21 +137,33 @@ git describe 就是这样了！试着在这个关卡指定几个位置来感受�
 
 ![image](https://user-images.githubusercontent.com/33156021/207044519-1f8188bd-79cc-4bb1-841d-cdd8c3ed8e56.png)
 
+```
+$ git rebase main bugFix
+
+$ git rebase bugFix side
+
+$ git rebase side another
+
+$ git rebase another main
+```
 
 
 
 
 
 
+// 选择父提交记录
+
+ 要完成此关，在指定的目标位置创建一个新的分支。
+
+``` $ git branch bugWork main^^2^
+
+
+// “纠缠不清的分支”
 
 
 
-
-
-
-
-
-
+// “Git Clone”
 
 
 
