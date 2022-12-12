@@ -57,7 +57,7 @@ $ git checkout bugFix; git rebase main
 
 <img width="929" alt="image" src="https://user-images.githubusercontent.com/33156021/207018527-43826273-0016-4793-bec9-2fb0a8c5cc8b.png">
 
-''' 
+''' java
 $ git checkout c4
 '''
 
