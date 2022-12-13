@@ -87,7 +87,7 @@ $ git checkout c1;
 
 ```$ git cherry-pick c3 c4 c7```
 
-// "交互式的 rebase"，带参数 --interactive 简写为 -i，rebase UI界面打开时, 你能做3件事：1 提交记录的顺序（通过鼠标拖放来完成）；2 不想要的提交（通过切换 pick 的状态来完成，关闭就意味着你不想要这个提交记录）；3 提交。 遗憾的是由于某种逻辑的原因，我们的课程不支持此功能，因此我不会详细介绍这个操作。简而言之，它允许你把多个提交记录合并成一个。
+// "交互式的 rebase"。git rebase 把所在分支复制到目标参数上的分支上并且带有'。带参数 --interactive 简写为 -i，rebase UI界面打开时, 你能做3件事：1 提交记录的顺序（通过鼠标拖放来完成）；2 不想要的提交（通过切换 pick 的状态来完成，关闭就意味着你不想要这个提交记录）；3 提交。 遗憾的是由于某种逻辑的原因，我们的课程不支持此功能，因此我不会详细介绍这个操作。简而言之，它允许你把多个提交记录合并成一个。
 
 要通过本关, 做一次交互式的 rebase，整理成目标窗口中的提交顺序。 记住，你随时都可以用 undo、reset 修正错误，
 
@@ -156,7 +156,7 @@ $ git rebase another main
 
 要完成此关，在指定的目标位置创建一个新的分支。
 
-``` $ git branch bugWork main^^2^
+``` $ git branch bugWork main^^2^```
 
 
 // “纠缠不清的分支”
@@ -177,10 +177,31 @@ $ git rebase another main
 
 ![image](https://user-images.githubusercontent.com/33156021/207225860-dbc5389e-a0c7-4e90-838c-f6215bb1bbb2.png)
 
-// “Git Pull”,先抓取更新再合并到本地分支。其他方法：```git cherry-pick o/main; git rebase o/main; git merge o/main```
+// “Git Pull”,先抓取更新再合并到本地分支，git pull 就是 fetch 和 merge 的简写。```git pull``` = ```$ git fetch; git merge o/main;。其他方法：```git cherry-pick o/main; git rebase o/main; git merge o/main```
 
 
+// “模拟团队合作”
 
+![image](https://user-images.githubusercontent.com/33156021/207247190-16b42653-c4fe-4464-ab21-3458fe75eb4f.png)
+
+// “Git Push”
+
+要完成本关，需要向远程仓库分享两个提交记录。拿出十二分精神吧，后面的课程还会更难哦！
+
+![image](https://user-images.githubusercontent.com/33156021/207248044-4825c7dc-365b-45b6-95cb-e5bda6c5bb8f.png)
+
+```提交两次，一次push```
+
+// “偏离的提交历史”，其他人提交的新的，本地的分支 不匹配 远程的分支时，无法使用push。先fetch下载远程，再rebase本地的提交新分支，在push上传。git pull --rebase 就是 fetch 和 rebase 的简写！
+
+要完成本关，你需要完成以下几步：
+
+克隆你的仓库
+模拟一次远程提交（fakeTeamwork）
+完成一次本地提交
+用 rebase 发布你的工作
+
+// “锁定的Main(Locked Main)”
 
 
 
