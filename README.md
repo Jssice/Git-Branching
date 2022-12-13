@@ -152,9 +152,9 @@ $ git rebase another main
 
 
 
-// 选择父提交记录
+// 选择父提交记录，链式操作
 
- 要完成此关，在指定的目标位置创建一个新的分支。
+要完成此关，在指定的目标位置创建一个新的分支。
 
 ``` $ git branch bugWork main^^2^
 
@@ -162,8 +162,22 @@ $ git rebase another main
 // “纠缠不清的分支”
 
 
+  
+  
+### 远程1 Push & Pull —— Git 远程仓库！
+远程仓库是一个强大的备份； 远程让代码社交化了。
 
-// “Git Clone”
+// “Git Clone”，git clone 后本地仓库多了一个名为 o/main 的分支或者叫远程分支。<remote name>/<branch name>。o/main 的分支或者叫远程分支，分支就叫 main，远程仓库的名称就是 o (origin)。
+
+// “远程分支”,
+
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/33156021/207225085-a305de55-667e-40ea-b5a3-472a384df31e.png">
+
+// “Git Fetch”,从远程仓库获取数据。具体是：从远程仓库下载本地仓库中缺失的提交记录，然后更新远程分支指针(如 o/main)。
+
+![image](https://user-images.githubusercontent.com/33156021/207225860-dbc5389e-a0c7-4e90-838c-f6215bb1bbb2.png)
+
+// “Git Pull”,先抓取更新再合并到本地分支。其他方法：```git cherry-pick o/main; git rebase o/main; git merge o/main```
 
 
 
@@ -174,12 +188,7 @@ $ git rebase another main
 
 
 
-
-
-
-
-
-
+### 远程2 关于 origin 和它的周边 —— Git 远程仓库高级操作
 
 
 
