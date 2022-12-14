@@ -87,7 +87,7 @@ $ git checkout c1;
 
 ```$ git cherry-pick c3 c4 c7```
 
-// "交互式的 rebase"。git rebase 把所在分支复制到目标参数上的分支上并且带有'。带参数 --interactive 简写为 -i，rebase UI界面打开时, 你能做3件事：1 提交记录的顺序（通过鼠标拖放来完成）；2 不想要的提交（通过切换 pick 的状态来完成，关闭就意味着你不想要这个提交记录）；3 提交。 遗憾的是由于某种逻辑的原因，我们的课程不支持此功能，因此我不会详细介绍这个操作。简而言之，它允许你把多个提交记录合并成一个。rebase 的优缺点： 优点: Rebase 使你的提交树变得很干净, 所有的提交都在一条线上 缺点: Rebase 修改了提交树的历史
+// "交互式的 rebase"，带参数 --interactive 简写为 -i，rebase UI界面打开时, 你能做3件事：1 提交记录的顺序（通过鼠标拖放来完成）；2 不想要的提交（通过切换 pick 的状态来完成，关闭就意味着你不想要这个提交记录）；3 提交。 遗憾的是由于某种逻辑的原因，我们的课程不支持此功能，因此我不会详细介绍这个操作。简而言之，它允许你把多个提交记录合并成一个。
 
 要通过本关, 做一次交互式的 rebase，整理成目标窗口中的提交顺序。 记住，你随时都可以用 undo、reset 修正错误，
 
@@ -152,113 +152,38 @@ $ git rebase another main
 
 
 
-// 选择父提交记录，链式操作
+// 选择父提交记录，tips: git branch <new Branch> <current HEAD location and able to move the branch with quick opt.>
 
 要完成此关，在指定的目标位置创建一个新的分支。
 
-``` $ git branch bugWork main^^2^```
+``` $ git branch bugWork main^^2^
 
 
-// “纠缠不清的分支”
+// “纠缠不清的分支”, tips: git cherry-pick
 
 
-  
-  
-### 远程1 Push & Pull —— Git 远程仓库！
-远程仓库是一个强大的备份； 远程让代码社交化了。
-
-// “Git Clone”，git clone 后本地仓库多了一个名为 o/main 的分支或者叫远程分支。<remote name>/<branch name>。o/main 的分支或者叫远程分支，分支就叫 main，远程仓库的名称就是 o (origin)。
-
-// “远程分支”,
-
-<img width="946" alt="image" src="https://user-images.githubusercontent.com/33156021/207225085-a305de55-667e-40ea-b5a3-472a384df31e.png">
-
-// “Git Fetch”,从远程仓库获取数据。具体是：从远程仓库下载本地仓库中缺失的提交记录，然后更新远程分支指针(如 o/main)。
-
-![image](https://user-images.githubusercontent.com/33156021/207225860-dbc5389e-a0c7-4e90-838c-f6215bb1bbb2.png)
-
-// “Git Pull”,先抓取更新再合并到本地分支，git pull 就是 fetch 和 merge 的简写。```git pull``` = ```$ git fetch; git merge o/main;。其他方法：```git cherry-pick o/main; git rebase o/main; git merge o/main```
-
-
-// “模拟团队合作”
-
-![image](https://user-images.githubusercontent.com/33156021/207247190-16b42653-c4fe-4464-ab21-3458fe75eb4f.png)
-
-// “Git Push”
-
-要完成本关，需要向远程仓库分享两个提交记录。拿出十二分精神吧，后面的课程还会更难哦！
-
-![image](https://user-images.githubusercontent.com/33156021/207248044-4825c7dc-365b-45b6-95cb-e5bda6c5bb8f.png)
-
-```提交两次，一次push```
-
-// “偏离的提交历史”，其他人提交的新的，本地的分支 不匹配 远程的分支时，无法使用push。先fetch下载远程，再rebase本地的提交新分支，在push上传。git pull --rebase 就是 fetch 和 rebase 的简写！
-
-要完成本关，你需要完成以下几步：
-
-克隆你的仓库
-模拟一次远程提交（fakeTeamwork）
-完成一次本地提交
-用 rebase 发布你的工作
-
-// “锁定的Main(Locked Main)”，远程服务器拒绝!(Remote Rejected)。
-
-```$ git checkout -b feature; git branch -f main c1; git push;```
-
-### 远程2 关于 origin 和它的周边 —— Git 远程仓库高级操作
-
-// “推送主分支”，合并特性分支。
-
-这里共有三个特性分支 —— side1 side2 和 side3
-我需要将这三分支按顺序推送到远程仓库
-因为远程仓库已经被更新过了，所以我们还要把那些工作合并过来
-
-// “合并远程仓库”
-
-![image](https://user-images.githubusercontent.com/33156021/207282733-290be8bf-b869-483a-a49b-a573dd7a2def.png)
-
-```
-$ git fetch
-
-$ git branch -f main side1
-
-$ git checkout main
-
-$ git merge o/main
-
-$ git branch -f main side2
-
-$ git merge c9
-
-$ git merge side3
-
-$ git push
-```
-
-// “远程追踪”，git checkout -b totallyNotMain o/main，git branch -u o/main foo; git commit; git push
-
-检出一个名叫 foo 的新分支，让其跟踪远程仓库中的 main，使用了隐含的目标 o/main 来更新 foo 分支。```git checkout -b foo o/main; git pull; ```
-
-将一个并不叫 main 的分支上的工作推送到了远程仓库中的 main 分支上 ```git checkout -b foo o/main; git commit; git push; ```
-
-另一种设置远程追踪分支的方法就是使用：```git branch -u o/main foo```。foo 就会跟踪 o/main 了。如果当前就在 foo 分支上, 还可以省略 foo：```git branch -u o/main```
-
-
-$ git checkout -b side o/main
-
-$ git commit
-
-$ git pull --rebase
-
-$ git push
+### 1 Push & Pull —— Git 远程仓库！
+// “Git Clone”
 
 
 
-// “Git push 的参数”，git checkout c0; git push origin main;
 
-![image](https://user-images.githubusercontent.com/33156021/207307369-b50f36a3-97ca-4c2f-b5a0-61df3b23ccd0.png)
+### 2 关于 origin 和它的周边 —— Git 远程仓库高级操作
 
-```$ git push origin main; git push origin foo;```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
